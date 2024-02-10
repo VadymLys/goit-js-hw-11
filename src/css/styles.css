@@ -99,10 +99,10 @@ button:hover {
   display:inline-block;
   position:relative;
   border:3px solid;
-  border-color:#de3500 #0000 #808080 #0000;
+  border-color:#de3500 transparent #808080 transparent;
   border-radius:50%;
   box-sizing: border-box;
-  animation: 1000ms rotate linear infinite;
+  animation: 1s rotate linear infinite;
 }
 
 
@@ -112,13 +112,13 @@ button:hover {
   top:0;
   left:0;
   position:absolute;
-  border:10px solid transparent;
+  border:10px solid transparent; 
   border-bottom-color:#808080;
-  transform: translate(-10px, 19px), rotate(-35deg);
+  transform: translate(-10px, 19px) rotate(-35deg);
 }
 
 .loader::after{
-  border-color:#de3500 #0000 #0000 #0000;
+  border-color:#de3500 transparent transparent transparent;
   transform:translate(32px, 3px) rotate(-35deg)
 }
 
