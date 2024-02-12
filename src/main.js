@@ -39,13 +39,13 @@ form.addEventListener("submit", (e) => {
 
 function searchImages(searchTerm) {
     const apiKey = '42291440-1a96f303b7bedbf570d96cd98';
-    const url = `https://pixabay.com.api/?key=${apiKey}&q=${searchTerm}&image_type=photo&orientation=horizontal&safesearch=true`;
+    const url = `https://pixabay.com/api/?key=${apiKey}&q=${searchTerm}&image_type=photo&orientation=horizontal&safesearch=true`;
     fetch(url)
         .then(response => {
             if (!response.ok) {
                 throw new Error(response.status);
             } else {
-                return response.json;
+                return response.json();
             }
         })
         .then(data => {
@@ -59,12 +59,12 @@ function searchImages(searchTerm) {
             } else {
                 const markup = data.hits.map(data => {
                     return `<li class="gallery-item"><a href="${data.largeImageURL}">
-//           <img class="gallery-image" src="${data.webformatURL}" alt="${data.tags}"></a>
-//           <p><b>Likes: </b>${data.likes}</p>
-//           <p><b>Views: </b>${data.views}</p>
-//           <p><b>Comments: </b>${data.comments}</p>
-//           <p><b>Downloads: </b>${data.downloads}</p>
-//           </li>`;
+         <img class="gallery-image" src="${data.webformatURL}" alt="${data.tags}"></a>
+          <p><b>Likes:</b> ${data.likes}</p>
+          <p><b>Views: </b>${data.views}</p>
+          <p><b>Comments: </b>${data.comments}</p>
+           <p><b>Downloads: </b>${data.downloads}</p>
+           </li>`;
                 }).join("");
             
                 gallery.insertAdjacentHTML("beforeend", markup);
@@ -80,7 +80,7 @@ function searchImages(searchTerm) {
 
                 lightbox.on('show.simplelightbox').refresh();
                 hideLoader();
-
+                
             };
         })
         .catch((error) => console.log(error));

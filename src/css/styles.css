@@ -93,40 +93,36 @@ button:hover {
 }
 
 
-.loader{
-  width:48px;
-  height:48px;
-  display:inline-block;
-  position:relative;
-  border:3px solid;
-  border-color:#de3500 transparent #808080 transparent;
-  border-radius:50%;
+.loader {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  background: linear-gradient(0deg, rgba(255, 61, 0, 0.2) 33%, #ff3d00 100%);
   box-sizing: border-box;
-  animation: 1s rotate linear infinite;
+  animation: rotation 1000ms linear infinite;
 }
 
-
-.loader::before, 
-.loader::after{
-  content:'';
-  top:0;
-  left:0;
-  position:absolute;
-  border:10px solid transparent; 
-  border-bottom-color:#808080;
-  transform: translate(-10px, 19px) rotate(-35deg);
+.loader::after {
+  content: '';
+  box-sizing: border-box;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #263238;
 }
 
-.loader::after{
-  border-color:#de3500 transparent transparent transparent;
-  transform:translate(32px, 3px) rotate(-35deg)
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg)
+  }
+
+  100% {
+    transform: rotate(360deg)
+  }
 }
-
-
-@keyframes rotate{
-   100%{
-    transform:rotate(360deg);
-   }
-}
-
-
